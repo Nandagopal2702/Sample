@@ -1,0 +1,374 @@
+4. What is the importance of PEP rules?
+
+PEP stands for Python Enhancement Proposal. its is a document that provides guidelines and best practise on how to write the python code. A PEP is a document that describes new features proposed for python. PEP mainly improves the readability of the python code
+Following the PEP rules while writing the code make the developers readable.the developers coding, following the PEP rule to write the code make the code much reliable
+
+*****************************************************************************************************************************************************
+
+5. Can we order dictionary? how?
+
+As we know that dictionary are unordered data structure.but using the sorted method we can try to change it from unordered to ordered.
+
+example: 
+d = {"a":10, "z":20, "k":30, "d":40}
+d1 = sorted(d.keys())
+
+for i in d1:
+    print(i,d[i])
+
+*****************************************************************************************************************************************************
+
+6. write a python program to right rotate a list by n
+	Enter position to rotate list item: 3
+	Sample input: [10, 20, 30, 40, 50, 60, 70]
+	Expected output: [50, 60, 70, 10, 20, 30, 40] ?
+
+l1 = [10, 20, 30, 40, 50, 60, 70]
+n = 3
+
+for i in range(n):
+    a = l1.pop()
+    l1.insert(0,a)
+
+print(l1)
+
+*****************************************************************************************************************************************************
+
+7. Difference between append and extend operations of list?
+
+append: ->it adds one/single element or value at the end of the list
+	->it only takes the one argument
+	->if you pass the list as an arguement it will place the whole list 
+example: l = [1,2,3]
+	 l.append([1,2,3])
+	 print(l)
+	 # [1,2,3,[1,2,3]]
+
+extend: ->it adds the multiple elements or values at the end of the list
+	->it takes the iterable as the argument like list,tuple
+	->if you pass the list as an argument it will place the elements of the list at the end
+example: l = [1,2,3]
+	 l.extend([1,2,3])
+	 print(l)
+	 # [1,2,3,1,2,3]
+
+*****************************************************************************************************************************************************
+
+8. Create a dictionary where the key is an even number from the given list and the value will be the occurrence of that element in the list. 
+	input= [1,2,3,2,4,2,4,7,8,4,5,8,6,9,2]
+
+l = [1,2,3,2,4,2,4,7,8,4,5,8,6,9,2]
+d = {}
+for i in l:
+    if i % 2 == 0:
+        if i in d:
+            d[i] += 1
+        else:
+            d[i] = 1
+
+print(d)
+
+*****************************************************************************************************************************************************
+
+9. Write a function swap_element that contains two args which will be the position of elements present in the list. The function must swap the elements present in those positions.
+Input: [1,2,3,4,5,6,7,8] function: swap_element(arg1, arg2)
+
+def swap_elements(l,a1,a2):
+    if a1 >= len(l) or a2 >= len(l):
+        return "No swap"
+    else:
+        l[a1],l[a2] = l[a2],l[a1]
+    return l
+
+l = [1,2,3,4,5,6,7,8]
+print(swap_elements(l,4,6))
+
+*****************************************************************************************************************************************************
+
+10. Write the output of the program:
+
+match = 'version'
+input = 'Upgraded_image_version_8.0.4.3'
+if match in input:
+   print(‘YES’)
+else:
+   print(‘NO’)
+
+
+output : YES
+
+*****************************************************************************************************************************************************
+
+11. Rewrite the program to get proper output
+Match = 'version'
+input=8
+print(Match+input)
+
+correct program :
+
+Match = 'version'
+input = 8
+print(Match + "_" + str(input))
+
+*****************************************************************************************************************************************************
+
+12. How is memory management done in python?
+
+Memory management in python is done in many ways like
+
+-> Memory allocation : its a essential part for memory management. this process basically allots free space in computer virtual memory. there are two types of virtual memory works during execution of programs
+	-- static memory allocation (stack allocation)
+	-- dynamic memory allocation (heap memory allocation)
+
+-> Garbage collection : Python removes those objects that are no longer in use, it frees up the memory space this process is called as garbage collection. python uses the dynamic memory allocation which is managed by heap data structure. memory heap holds the objects and other data sturcture that will be used in the program
+
+-> Referencing counting : Referance counting states that how many times other objects reference an object. when the reference of the object is assigned the count of the object is incremented one. when the reference of an object are removed or deleted the count of the object is decremented.
+
+*****************************************************************************************************************************************************
+
+13. Give a real time example for multithreading. Is it a good idea to use multi-thread to speed your Python code?
+
+Multithreading is a threading technique in programming to run multiple threads concurrently by rapidly switching between threads with a CPU help.  
+realtime examples :
+--> Web browsers - In a web browser we can download any number of files and web pages(multiple tabs) at the same time and still lets you continue browsing. if some web page cannot download, that is not going to stop the web browser from dowloading the other web pages 
+--> Computer games - In the games we have objects like cars, different characters, different running objects those are implemented as seperate threads. also playing the background music at the same time as playing the game.
+
+Using the multithreading concept for speeding up the python code depends on the Nature of the code. it depends on the the ways how we give I/O or file I/O (I-input,O-output).But mainly the multithreading cna improve the performance of the CPU-bount tasks that can be parallelized such as data processing etc.
+
+*****************************************************************************************************************************************************
+
+14. When do you use generators in python? Give an example?
+
+Generators are special kind of function that returns multiple items, that the items are returned one by one rather than all at once.
+Generators are used when enounter problems that require you to read a large dataset. it means large dataset indirectly our computer or server would have to allocate memory for it.
+once the generator function is execution is complete it remembers the previous execution
+
+example : 
+
+def number(x):
+    for i in range(x):
+        yield i
+      
+a = number(3)
+print(next(a))
+print(next(a))
+print(next(a))
+
+*****************************************************************************************************************************************************
+
+15. Give the scenarios, when you will get ‘ValueError’?
+
+-> we get value error when type conversion is not correct
+ex : float('xyz') - value error
+-> while using the for loop if we give more arguments we get value error
+ex : for i in range(0,10,1,5) - value error
+-> giving the empty string for function parameter
+ex : def fun(list("")) - value error
+-> when too many values are given
+ex : l = [1,2,3,4]
+     a,b,c = l
+     print(a)
+     print(b)
+     print(c)
+
+*****************************************************************************************************************************************************
+
+16. write a program to multiply two given number without using "*" operator and any in built function?
+
+a = int(input())
+b = int(input())
+mul = 0
+for i in range(b):
+    mul += a
+if (a<0 and b>0) or (a>0 and b<0):
+    print(-mul)
+else:
+    print(mul)
+
+*****************************************************************************************************************************************************
+
+17. Write a program to find the count of alphabet alone in the given alphanumeric string for
+Ex1: input=’abb24ccc8ddbbca1’ output=’a1b224c3d2b2c1a11’
+Ex2: input = ‘abc23’ output=’a1b1c123’
+
+s = input()
+s1 = ""
+c = {}
+for i in s:
+    if i.isalpha():
+        if i in c:
+            c[i] += 1
+        else:
+            c[i] = 1
+for i in s:
+    if i.isalpha() and i in c:
+        s1 += i + str(c[i])
+        del c[i]
+print(s1)
+
+****************************************************************************************************************************************************
+
+18. Write a python program where for every two hours it prints the pattern without using
+sleep function
+*********
+ *******
+  *****
+   ***
+    *
+
+import time
+
+n = 5
+for i in range(n):
+    for j in range(n):
+        if i <= j:
+            print("*",end="")
+        else:
+            print(" ",end="")
+    for j in range(1,n):
+        if (i+j) <= (n-1):
+            print("*",end="")
+        else:
+            print(" ",end="")
+    print()
+        
+start_time = time.time()
+while time.time() - start_time < 7200:
+    pass
+
+******************************************************************************************************************************************************
+
+19. Write a program using decorators to print the traffic signal messages
+Expected output -
+RED : STOP
+YELLOW : SLOW DOWN
+GREEN : GO
+The decorator should be working in this order
+
+def traffic(a):
+    def signals():
+        print("RED: STOP")
+        a()
+        print("GREEN: GO")
+    return signals
+
+@traffic
+def yellow():
+    print("YELLOW: SLOWDOWN")
+
+yellow()    
+
+******************************************************************************************************************************************************
+
+20. Write a python program for sort the given below list based last character of each word 
+names_list = ['Prabhu', Rahul', 'Arunesh, 'Sonali', 'Rakshit']
+
+l = ['Prabhu', 'Rahul', 'Arunesh', 'Sonali', 'Rakshit']
+
+c = lambda x: x[-1]
+l1 = sorted(l,key=c)
+print(l)
+print(l1)
+
+******************************************************************************************************************************************************
+
+21. How do you open a file of large size, say around 10GB? So that program should not crash?
+
+with open("filename", 'r') as file: -> filename is the file you selected and r is readonly and file is alias name given to the file
+    while True:
+        new = file.read(1024)
+        if not new:
+            break
+
+******************************************************************************************************************************************************
+
+22. Write a function where month and year are taken as arguments which returns the output with all the dates of saturdays occuring in the month?
+
+month = int(input())
+year = int(input())
+
+l = []
+c = calendar.monthcalendar(year, month)
+for week in c:
+    if week[calendar.SATURDAY] != 0:
+        l.append(week[calendar.SATURDAY])
+
+print(l)
+
+*****************************************************************************************************************************************************
+
+23. Find the highest sum of the string by removing the duplicates for each iteration
+input="1211"
+
+input = "1211"
+a = ""
+c = 0
+for i in input:
+    if i not in a:
+        a += i
+        c += int(i)
+print(c)
+
+*****************************************************************************************************************************************************
+
+26. You are given a string S. your task is to find the indices of the start and end of string k in S.
+the first line contains the string S. the second line contains the string k.
+print the tuple in this format: (start_index, end_index).if no match is found,print(-1,-1)
+sample input  |  sample output
+
+aaadaa           (0,1)
+aa               (1,2)
+                 (4,5)
+
+S = input()
+k = input()
+
+SI = S.find(k)
+if SI == -1:
+    print(-1, -1)
+else:
+    EI = SI + len(k) - 1
+    print(SI, EI)
+    while True:
+        SI = S.find(k, SI + 1)
+        if SI == -1:
+            break
+        EI = SI + len(k) - 1
+        print(SI, EI)
+
+******************************************************************************************************************************************************
+
+27. Write a Python class to check the validity of a string of parentheses, '(', ')', '{', '}', '[' and '].
+These brackets must be closed in the correct order, for example "()" and "()[]{}" are valid but "[)", "({[)]" and "{{{" are invalid ?
+
+def isValid(s):
+    a = dict(('()', '[]', '{}'))
+    l = []
+    for i in s:
+        if i in '([{':
+            l.append(i)
+        elif len(l) == 0 or i != a[l.pop()]:
+            return False
+        else:
+            return len(l) == 0
+
+print(isValid("()"))
+
+******************************************************************************************************************************************************
+
+30. How does the context manager work in python? Explain the internal methods. Write a custom sample context manager?
+
+context manager:- a context manager is an object that defines a runtime context executing within the 'with' statement
+suppose a block of code raises an exception or if it has a complex algorithm with multiple return paths, it becomes difficult to close a file in all the places. generally in other langauges when working with files try,except,finally is used to ensure that the file resource is closed after usage even if there is an exception. python provides an easy wy to manage resources: context managers.
+the with keyword is used when it gets evaluated it should result in an object that performs context management
+
+with open('data.txt') as f:
+     data = f.readlines()
+     print(int(data[0])
+
+internal methods
+-> __init__ method : a object is created with filename and with writh mode when it is executed
+-> __enter__ method : enter method opens the file in write mode(setup operation) and returns a file object 
+-> __exit__ method : exit methods takes care of closing the file on exiting the with block(teardown operation) 
+
+****************************************************************************************************************************************************

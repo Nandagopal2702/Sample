@@ -1,0 +1,263 @@
+1. Write a program to reverse a number without using any inbuit function?
+
+num = input()
+new_num = int(num[::-1])
+print(new_num)
+
+***********************************************************************************************************************************************************
+
+2. Given a list of first 10 natural numbers, write a program to find the square of all even numbers and cube of all odd numbers and store them in another list ?
+
+list_1 = [1,2,3,4,5,6,7,8,9,10]
+list_2 = []
+for i in list_1:
+    if i%2 == 0:
+        list_2.append(i**2)
+    else:
+        list_2.append(i**3)
+print(list_2)
+
+***********************************************************************************************************************************************************
+
+3. Given a tuple (“Msys”, “Technologies”, “2007”), add “Python” at the end of this tuple and the output should also be in the form of tuple. Make a note that tuples are immutable in nature so you need to find some idea to make modification and print the updated tuple ?
+
+tup = ("Msys", "Technologies", "2007")
+list_1 = list(tup)
+list_1.append("Python")
+
+print(tuple(list_1))
+
+**********************************************************************************************************************************************************
+
+4.  In the dictionary {‘India’:’New Delhi’, ‘USA’:’Washington D.C.’, ‘Nepal’:’Kathmandu’} list out all the keys in a list named as ‘list_keys’ and list out all the values in a list named as ‘list_values’. Also find out the value of key ‘Australia’ in the list and as it is not existing in the list print ‘NA’ as its value ?
+
+dict = {'India':'New Delhi', 'USA':'Washington D.C', 'Nepal':'Kathmandu'}
+find = "Australia"
+
+list_keys = list(dict.keys()) #listing the keys of dict
+list_values = list(dict.values()) # listing the values of dict
+
+key = dict.get(find,"NA") # finding the Australia in dict
+value = dict.get(find.index,"''") # finding the value of Australia in the dict
+
+print(list_keys)
+print(list_values)
+print(key)
+print(value)
+
+**********************************************************************************************************************************************************
+
+5. Given a dictionary {'Msys Technologies':'Sanjay Sehgal','Infosys':'Salil Parekh','TCS':'Rajesh Gopinathan', 'Wipro':'Thierry Delaporte'} make a list of all the values associated with keys in alphabetically sorted order?
+
+dict = {'Msys Technologies':'Sanjay Sehgal','Infosys':'Salil Parekh','TCS':'Rajesh Gopinathan','Wipro':'Thierry Delaporte'}
+
+new_dict = sorted(dict.items())
+new_list = []
+for i in new_dict:
+    new_list.append(list(i))
+
+print(new_list)
+
+************************************************************************************************************************************************************
+
+6. Write a program to extract the words starting with lowercase letter present in the list.
+ ['Nissan','maruti', 'hyundai', 'Volkswagen', 'audi']
+
+list_1 = ['Nissan','maruti', 'hyundai', 'Volkswagen', 'audi']
+list_2 = []
+for i in list_1:
+    if i[0].islower():
+        list_2.append(i)
+
+print(list_2)
+
+*************************************************************************************************************************************************************
+
+7. Write a program using dictionary comprehension which will contain the key value pair of i:i**2. Value of ‘i’ will start from 1 and will go upto 10.
+
+dict = {i:i**2 for i in range(1,11)}
+print(dict)
+
+*************************************************************************************************************************************************************
+
+8. Take the input marks from user using input() function and find out the grade of the students. Note the grading will be in this manner – (100 – 91) – A1,
+(90-81) – A2, (80-71) – B1, (70-61) – B2, (60-51) – C1 (50-40) – C2 and less than 40 students will ‘Fail’. 
+Also make sure user should input the marks in the range 0<=marks<=100, if user will input some other marks in should print invalid marks.
+
+marks = int(input())
+
+if marks < 0 or marks > 100:
+    print("Invalid Marks:Enter the correct marks")
+elif marks >= 91 and marks <= 100:
+    print('A1')
+elif marks >= 81 and marks <= 90:
+    print('A2')
+elif marks >= 71 and marks <= 80:
+    print('B1')
+elif marks >= 61 and marks <= 70:
+    print('B2')
+elif marks >= 51 and marks <= 60:
+    print('C1')
+elif marks >= 40 and marks <= 50:
+    print('C2')
+elif marks < 40:
+    print("Fail")
+
+************************************************************************************************************************************************************
+
+9. Given a list [1,2,1,5,9,10,2,2,7,5,3,10,8,9,15,17,21,16,17,90] find the difference between the length of the list and the count of unique elements in the list.
+
+list_1 = [1,2,1,5,9,10,2,2,7,5,3,10,8,9,15,17,21,16,17,90]
+
+dict = {}
+for i in list_1:
+    if i in dict:
+        dict[i] += 1
+    else:
+        dict[i] = 1
+count = 0
+newlist = []
+for i,j in dict.items():
+    if j == 1:
+        count += 1
+        newlist.append(i)
+print(newlist)
+print(count)
+
+**************************************************************************************************************************************************************
+
+10. In the given String -- ‘MsYs TecHNOlogiEs iS a gREat place To woRk’ find the count of lowercase and uppercase letters.
+
+String = 'MsYs TecHNOlogiEs iS a gREat place To woRk'
+low = 0
+up = 0
+sp = 0
+for i in String:
+    if i.islower():
+        low += 1
+    elif i.isupper():
+        up += 1
+    elif i.isspace():
+        a= "".join(String)
+
+print(low)
+print(up)
+
+**************************************************************************************************************************************************************
+
+11. Write a python function with name reverse_vowel that takes one string as an argument and reverse the order of vowels present in the string. The function should return the string having reversed order of vowels. For example – If the input string which is given as argument is ‘Hello’ then the output string should be ‘Holle’. You need to reverse the vowel irrespective of lowercase or uppercase.
+
+def reverse_vowel(String):
+    vowels = 'aeiouAEIOU'
+    v = []
+    for i in String:
+        if i in vowels:
+            v.append(i)
+    rev = v[::-1]
+    result = ''
+    i = 0
+    for j in String:
+        if j in vowels:
+            result += rev[i]
+            i += 1
+        else:
+            result += j
+    return result
+
+s = input()
+a = reverse_vowel(s)
+print(a)
+
+***************************************************************************************************************************************************************
+
+12. Write a method number_of_prime_numbers() which takes two input arguments num1 and num2 and should return the total number of prime numbers in the range. The numbers num1 and num2 are inclusive of the range. Also add all the numbers in an empty list and return the sum of the list. So finally your function will return two things, first will be the count of prime numbers and the other will be the sum of all the prime numbers in the given range.
+
+def number_of_prime_number(num1,num2):
+    list_1 = []
+    for i in range(num1,num2+1):
+        if num1 > 1:
+            for j in range(2,int(i**0.5)+1):
+                if i % j == 0:
+                    break
+            else:
+                list_1.append(i)
+    print(len(list_1))
+    print(sum(list_1))
+
+****************************************************************************************************************************************************************
+
+13. Write a lambda function which takes two input arguments x and y. If x is greater than y then it should return square of y and if y is greater than x, then it should return square of x.
+
+x = int(input())
+y = int(input())
+
+result = lambda x,y : x**2 if (x > y) else y**2
+print(result(x,y))
+
+*****************************************************************************************************************************************************************
+
+14. Given two lists --
+list_1 = [‘Msys’, ‘Tata’, ‘Wells’, ‘Mobinius’]
+list_2 = [‘Technologies’, ‘Power’, ‘Fargo’, ‘Technologies’]
+Write a python code using map and lambda function which will create the list named as my_list consisting of the combination of first name and second name from list_1 and list_2 respectively. 
+
+list_1 = ['Msys', 'Tata', 'Wells', 'Mobinius']
+list_2 = ['Technologies', 'Power', 'Fargo', 'Technologies']
+
+result = list(map(lambda a,b : a+b, list_1,list_2))
+print(result)
+
+******************************************************************************************************************************************************************
+
+15. Given a list --
+list_1 = [10, 12, 15, 67, 95, 45, 43, 89, 91, 80, 75, 78, 94, 100]
+use the filter() function to find the list of numbers that are multiple of either 2 or 5.
+
+list_1 = [10, 12, 15, 67, 95, 45, 43, 89, 91, 80, 75, 78, 94, 100]
+
+result = list(filter(lambda a: a%2 == 0 or a%5 == 0,list_1))
+print(result)
+
+******************************************************************************************************************************************************************
+
+16. Write a function which will take a string argument and reverse the words in the string. For 
+example – Input string -- “Hello World”. Output should be “olleH dlroW”
+
+def reverse_word(String):
+    String2 = String.split(" ")
+    res = [x[::-1] for x in String2]
+    return " ".join(res)
+    
+        
+print(reverse_word("Hello World"))
+
+*****************************************************************************************************************************************************************
+
+17. Write a program to replace duplicate adjacent alphabets from given string with ‘_’.
+For Example -- input given string : 'abcdaa hssbbye' and output : ‘abcda_ hs_b_ye’
+
+String_1 = input()
+res = []
+str = ""
+for i in String_1:
+    if i == str:
+        res.append("_")
+    else:
+        res.append(i)
+        str = i
+    new_str = " ".join(res)
+
+print(new_str)
+
+******************************************************************************************************************************************************************
+
+18. Print the below rohmbus pattern according to the given number for eg: given number is 4 then 
+o/p will be :
+   1
+  212
+ 32123
+4321234
+ 32123 
+  212 
+   1
+

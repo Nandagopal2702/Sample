@@ -1,0 +1,11 @@
+2022-09-14 12:19:17,316 :INFO :Pytestdemo.Baseclass :Nandu
+2022-09-14 12:19:17,316 :INFO :Pytestdemo.Baseclass :Nandagopal
+2022-09-14 12:22:57,250 :INFO :test_editProfile :Nandu
+2022-09-14 12:22:57,251 :INFO :test_editProfile :Nandagopal
+2022-09-14 13:00:09,630 :INFO :test_editProfile :Nandu
+2022-09-14 13:00:09,631 :INFO :test_editProfile :Nandagopal
+2022-09-14 13:00:09,634 :DEBUG :Pytestdemo.test_loging :A Debug statement is executed
+2022-09-14 13:00:09,634 :INFO :Pytestdemo.test_loging :Information executed
+2022-09-14 13:00:09,634 :WARNING :Pytestdemo.test_loging :Someting wrong in our code
+2022-09-14 13:00:09,635 :ERROR :Pytestdemo.test_loging :An error occured
+2022-09-14 13:00:09,635 :CRITICAL :Pytestdemo.test_loging :Critical issue
